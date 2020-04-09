@@ -19,20 +19,20 @@ Example: ``Require A1 for a duration of 10 weeks, every 2nd day, administer 1-2 
   :action 'A1
   :startTime (date :year 2020 :month 4 :day 07)
   :duration 10
-  :decomp [(Frame :unit 'week 
+  :decomp [(Frame :unit 'week
                   :selection [(Point :unit 'day
                                      :increment 2
                                      :admin [1 2])])])                                         
 ```
 
-A **Point** can can further be decomposed by a Frame. For example: ``Require A2 for a duration of 10 weeks, every day, every morning administer 2-3 times and every evening administer 0-1 times``. Here the Point (unit of day) selected from the top-level Segmentation (unit of week) have been further decomposed in a sub-ordinate Frame of unit day (with two Points of unit morning and afternoon, respectively). 
+A **Point** can can further be decomposed by a Frame. For example: ``Require A2 for a duration of 10 weeks, every day, every morning administer 2-3 times and every evening administer 0-1 times``. Here the Point (unit of day) selected from the top-level Segmentation (unit of week) have been further decomposed in a sub-ordinate Frame of unit day (with two Points of unit morning and afternoon, respectively).
 
 ```clojure
 (require
   :action 'A2
   :startTime (date :year 2020 :month 4 :day 07)
   :duration 10
-  :decomp [(Frame :unit 'week 
+  :decomp [(Frame :unit 'week
                   :selection [(Point :unit 'day
                                      :incement 1
                                      :decomp (Frame :unit 'day
@@ -52,7 +52,7 @@ Note, the above example could be rewritten as ``Require A3 for a duration of 10 
   :id 'A1
   :startTime (date :year 2020 :month 4 :day 07)
   :duration 10
-  :decomp [(Frame :unit 'week 
+  :decomp [(Frame :unit 'week
                   :selection [(Point :unit 'morning
                                      :increment 1
                                      :admin [2 3])
@@ -64,7 +64,7 @@ Note, the above example could be rewritten as ``Require A3 for a duration of 10 
 ## Restrictions
 
 **Restrictions** specify situations to avoid. They refer to a value and with a nominal time unit (e.g;, 3 hours).
-* **Min** and **Max** restrictions restrict the maximum or minumum actions that should be taken during any specified time unit. 
+* **Min** and **Max** restrictions restrict the maximum or minumum actions that should be taken during any specified time unit.
 * **Together**  restrictions require that the first action must be administered with the second action  (in the same unit time)
 * **Apart** restrictions require that the first action must not be administered with the second action  (in the same unit time)
 * **after** restrictions require that the second action must be taken at most *value* time units the first one
@@ -80,8 +80,7 @@ Example: ``Restriction: administer 'A2 and 'A1 at least 6 hours apart ``
   :unit 'hour
   :kind 'apart))                                     
 ```
-  
+
 
 # References
 1. Siemon's thesis: https://dspace.library.uvic.ca/handle/1828/8458
-
