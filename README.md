@@ -2,80 +2,84 @@
 Collaborative Health Adherence Optimization in Sociotechnical Systems
 
 # Prescription model
+[![](https://mermaid.ink/img/eyJjb2RlIjoiY2xhc3NEaWFncmFtXG5cbiAgXG4gIGNsYXNzIFJlc3RyaWN0aW9uIHtcbiAgdmFsdWUgOiBpbnRcbiAgdW5pdCA6IHVuaXQgOiBbRGF5fFdlZWt8TmlnaHR8TW9ybmluZ3xBZnRlcm5vb258SG91cnxNaW51dGVdXG4gIGtpbmQgOiBbTWlufE1heHxXaXRofE5vdFdpdGh8QWZ0ZXJ8Tm90QWZ0ZXJdXG4gIH1cblxuICBjbGFzcyBBY3Rpb257XG4gIGlkIDogVG9rZW5cbiAgfVxuXG5SZXN0cmljdGlvbiAtLT4gQWN0aW9uIDogb3RoZXJcblxuUHJlc2NyaXB0aW9uIC0tPiBGcmFtZSA6IGRlY29tcFxuUHJlc2NyaXB0aW9uIC0tPiBcIipcIiBSZXN0cmljdGlvbiA6IHJlc3RyaWN0aW9uc1xuXG5cblxuUG9pbnQgLS0-IEZyYW1lIDogZGVjb21wXG5cblxuRnJhbWUgLS0-IFBvaW50IDogc2VsZWN0aW9uXG5cblByZXNjcmlwdGlvbiAtLT4gQWN0aW9uIDogYWN0aW9uXG5cblx0Y2xhc3MgUHJlc2NyaXB0aW9ue1xuICAgIGlkIDogdG9rZW5cbiAgICBzdGFydCA6IFBvaW50SW5UaW1lXG4gICAgZHVyYXRpb24gOiBpbnRcblx0fVxuXG4gIGNsYXNzIEZyYW1lIHtcbiAgIHVuaXQgOiBbRGF5fFdlZWt8TmlnaHR8TW9ybmluZ3xBZnRlcm5vb258SG91cnxNaW51dGVdXG4gIH1cblxuICBjbGFzcyBQb2ludCB7XG4gICAgdW5pdCA6IFtEYXl8V2Vla3xOaWdodHxNb3JuaW5nfEFmdGVybm9vbnxIb3VyfE1pbnV0ZV1cbiAgICBpbmNyZW1lbnQgOiBpbnRcbiAgICBzZWxlY3QgOiBpbnRcbiAgfVxuXG5cblxuXHRcdFx0XHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiY2xhc3NEaWFncmFtXG5cbiAgXG4gIGNsYXNzIFJlc3RyaWN0aW9uIHtcbiAgdmFsdWUgOiBpbnRcbiAgdW5pdCA6IHVuaXQgOiBbRGF5fFdlZWt8TmlnaHR8TW9ybmluZ3xBZnRlcm5vb258SG91cnxNaW51dGVdXG4gIGtpbmQgOiBbTWlufE1heHxXaXRofE5vdFdpdGh8QWZ0ZXJ8Tm90QWZ0ZXJdXG4gIH1cblxuICBjbGFzcyBBY3Rpb257XG4gIGlkIDogVG9rZW5cbiAgfVxuXG5SZXN0cmljdGlvbiAtLT4gQWN0aW9uIDogb3RoZXJcblxuUHJlc2NyaXB0aW9uIC0tPiBGcmFtZSA6IGRlY29tcFxuUHJlc2NyaXB0aW9uIC0tPiBcIipcIiBSZXN0cmljdGlvbiA6IHJlc3RyaWN0aW9uc1xuXG5cblxuUG9pbnQgLS0-IEZyYW1lIDogZGVjb21wXG5cblxuRnJhbWUgLS0-IFBvaW50IDogc2VsZWN0aW9uXG5cblByZXNjcmlwdGlvbiAtLT4gQWN0aW9uIDogYWN0aW9uXG5cblx0Y2xhc3MgUHJlc2NyaXB0aW9ue1xuICAgIGlkIDogdG9rZW5cbiAgICBzdGFydCA6IFBvaW50SW5UaW1lXG4gICAgZHVyYXRpb24gOiBpbnRcblx0fVxuXG4gIGNsYXNzIEZyYW1lIHtcbiAgIHVuaXQgOiBbRGF5fFdlZWt8TmlnaHR8TW9ybmluZ3xBZnRlcm5vb258SG91cnxNaW51dGVdXG4gIH1cblxuICBjbGFzcyBQb2ludCB7XG4gICAgdW5pdCA6IFtEYXl8V2Vla3xOaWdodHxNb3JuaW5nfEFmdGVybm9vbnxIb3VyfE1pbnV0ZV1cbiAgICBpbmNyZW1lbnQgOiBpbnRcbiAgICBzZWxlY3QgOiBpbnRcbiAgfVxuXG5cblxuXHRcdFx0XHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
-A **Prescription** has a unique *id* a start time (which is an absolute point in time) and a duration in terms of a quantity of time frames (**Frame**) of a nominal time unit (e.g., 10 weeks).  A Frame conists of selected sub-units called **Points** (e.g., weeks consist of days, hours etc. Points are selected by specifying a specific ordinal value in attribute *select* or by specifying a particular *increment*. If an ordinal value is specified, it must be interpreted in the context of the enclosed Frame. For example, an ordinal value of 1 for a Point of unit Day in a Frame of unit week must be interpreted as the first day of the week (Monday). If an increment "i" is specified for a Point, it selects every ith sub-unit in the Frame.
+A **Prescription** has relates to a unique **Action**. It has a start time (which is an absolute point in time) and a duration in terms of a quantity of time frames (**Frame**) of a nominal time unit (e.g., 10 weeks).  A Frame conists of selected sub-units called **Points** (e.g., weeks consist of days, hours etc. Points are selected by specifying a specific ordinal value in attribute *select* or by specifying a particular *increment*. If an ordinal value is specified, it must be interpreted in the context of the enclosed Frame. For example, an ordinal value of 1 for a Point of unit Day in a Frame of unit week must be interpreted as the first day of the week (Monday). If an increment "i" is specified for a Point, it selects every ith sub-unit in the Frame.
 
-A Point must be further decomposed in a more granular Frame *or* it must specify an **Administration** of an action (with a minimum and maximum quantity for its execution).
+A Point must be further decomposed in a more granular Frame *or* it must specify an **Action** to be taken.
 
-Example: ``P1: for a duration of 10 weeks, every 2nd day, administer A1 2-3``. Here the *action* is `A1`, the *Frame* is `weeks`, the duration is 10, the selected *Point* is every 2nd day (it has an increment value of 2), the quantity is 2-3.
+Example: ``A1: for a duration of 10 weeks, every 2nd day``. Here the *action* is `A1`, the *Frame* is `weeks`, the duration is 10, the selected *Point* is every 2nd day (it has an increment value of 2).
 
 ```clojure
 (prescription
+  :action 'A1
   :startTime (date :year 2020 :month 4 :day 07)
   :duration 10
-  :decomp (list (Frame :unit 'week 
-                       :selection (list (Point :unit 'day
+  :decomp [(Frame :unit 'week 
+                       :selection [(Point :unit 'day
                                                :incement 2
-                                               :take (Administration :quantity [2 3] : action 'A1))))                                         
+                                               :take 'A1)])])                                         
 ```
 
-A **Point** can can further be decomposed by a Frame. For example: ``P2: for a duration of 10 weeks, every day, every morning administer A1 1-2 times and every evening A1 1 time``. Here the Point (unit of day) selected from the top-level Segmentation (unit of week) have been further decomposed in a sub-ordinate Frame of unit day (with two Points of unit morning and afternoon, respectively). 
+A **Point** can can further be decomposed by a Frame. For example: ``A2: for a duration of 10 weeks, every day, every morning and every evening``. Here the Point (unit of day) selected from the top-level Segmentation (unit of week) have been further decomposed in a sub-ordinate Frame of unit day (with two Points of unit morning and afternoon, respectively). 
 
 ```clojure
 (prescription
+  :action 'A2
   :startTime (date :year 2020 :month 4 :day 07)
   :duration 10
-  :decomp (list (Frame :unit 'week 
-                       :selection (list (Point :unit 'day
-                                               :incement 1
-                                               :decomp (Segmentation :unit 'day
-                                                                :selection (list (Point :unit 'morning
-                                                                                        :increment 1
-                                                                                        :take (Administration :quantity [2 3] : action 'A1))
-                                                                                 (Point :unit 'evening
-                                                                                        :increment 1
-                                                                                        :take (Administration :quantity [1 1] : action 'A1)))))                                     
+  :decomp [(Frame :unit 'week 
+                  :selection [(Point :unit 'day
+                                     :incement 1
+                                     :decomp (Segmentation :unit 'day
+                                                           :selection [(Point :unit 'morning
+                                                                              :increment 1)
+                                                                       (Point :unit 'evening
+                                                                              :increment 1)]))])])                                     
 ```
 
-Note, the above example could be rewritten as ``P2: for a duration of 10 weeks, every morning administer A1 1-2 times, every evening administer A1 1 time``. In that case, we only have one segmentation (weeks).
+Note, the above example could be rewritten as ``A2: for a duration of 10 weeks, every morning and every evening``. In that case, we only have one segmentation (weeks).
 
 ```clojure
 (prescription
+  :action 'A2
+  :id 'A1
   :startTime (date :year 2020 :month 4 :day 07)
   :duration 10
-  :decomp (list (Frame :unit 'week 
-                       :selection (list (Point :unit 'morning
-                                               :increment 1
-                                               :take (Administration :quantity [2 3] : action 'A1))
-                                        (Point :unit 'evening
-                                               :increment 1
-                                               :take (Administration :quantity [1 1] : action 'A1)))))                                     
+  :decomp [(Frame :unit 'week 
+                  :selection [(Point :unit 'morning
+                                     :increment 1)
+                              (Point :unit 'evening
+                                     :increment 1)]))])                                     
 ```
 
 
-Prescriptions can also have **Restrictions**. Restrictions also refer to a UnitTime.
+Prescriptions can also have **Restrictions**. Restrictions also refer to a value and nominal time unit.
 * **Min** and **Max** restrictions restrict the maximum or minumum actions that should be taken during any specified time unit.
 * **Together**  restrictions require that subsequent prescribed actions need to be taken no longer than the specified time apart. 
 * **Apart**  restrictions require that subsequent prescribed actions need to be taken at least the specified time apart. 
 * **With** / **WithOut** restrictions require that each prescribed action needs to be taken with / without an action specified by a different prescription
 * **after** require that each prescribed action needs to be taken at most *value* time units after the most recent other  specified action. Example: ``Take 3 A3 in the morning and 1-2 A3 in the afternoon for  10 days but not within 6 hours of taking A1``
 
+Example: ``A2: for a duration of 10 weeks, every morning and every evening, but not within within 6 hours of taking A3``
+
+
 ```clojure
 (prescription
-  :action 'A3
-  :startTime (date 2020 4 07)
-  :frame (TF :every (UT 'day)
-             :repeat 10 
-             :sub (list (TF :every (UT 'morning)
-                            :quantity [3 3])
-                        (TF :every (UT 'evening)
-                            :quantity [1 2])))
-  :restrictions (list (restriction 'without (UT 6 'hour) 'A1)))
+  :action 'A2
+  :id 'A1
+  :startTime (date :year 2020 :month 4 :day 07)
+  :duration 10
+  :decomp [(Frame :unit 'week 
+                  :selection [(Point :unit 'morning
+                                     :increment 1)
+                              (Point :unit 'evening
+                                     :increment 1)]))]
+  :restrictions [(restriction :value 6
+                              :unit 'hour
+                              :kind 'notWith
+                              :other 'A3 )])                                     
 ```
-
-
-[![](https://mermaid.ink/img/eyJjb2RlIjoiY2xhc3NEaWFncmFtXG5cbiAgXG4gIGNsYXNzIFJlc3RyaWN0aW9uIHtcbiAga2luZCA6IFtNaW58TWF4fFdpdGh8V2l0aG91dHxBcGFyZHxUb2dldGhlcnxCZWZvcmV8QWZ0ZXJdXG4gIH1cblxuICBjbGFzcyBBY3Rpb257XG4gIGlkIDogVG9rZW5cbiAgfVxuXG5SZXN0cmljdGlvbiAtLT4gQWN0aW9uIDogb3RoZXJcblxuUHJlc2NyaXB0aW9uIC0tPiBGcmFtZSA6IGRlY29tcFxuUHJlc2NyaXB0aW9uIC0tPiBcIipcIiBSZXN0cmljdGlvbiA6IHJlc3RyaWN0aW9uc1xuXG5cbkFkbWluaXN0cmF0aW9uIC0tPiBBY3Rpb24gOiBhY3Rpb25cblxuUG9pbnQgLS0-IEZyYW1lIDogZGVjb21wXG5cblxuRnJhbWUgLS0-IFBvaW50IDogc2VsZWN0aW9uXG5cblBvaW50IC0tPiBBZG1pbmlzdHJhdGlvbiA6IHRha2VcblxuXHRjbGFzcyBQcmVzY3JpcHRpb257XG4gICAgaWQgOiB0b2tlblxuICAgIHN0YXJ0IDogUG9pbnRJblRpbWVcbiAgICBkdXJhdGlvbiA6IGludFxuXHR9XG5cbiAgY2xhc3MgRnJhbWUge1xuICAgdW5pdCA6IFtEYXl8V2Vla3xOaWdodHxNb3JuaW5nfEFmdGVybm9vbnxIb3VyfE1pbnV0ZV1cbiAgfVxuXG4gIGNsYXNzIFBvaW50IHtcbiAgICB1bml0IDogW0RheXxXZWVrfE5pZ2h0fE1vcm5pbmd8QWZ0ZXJub29ufEhvdXJ8TWludXRlXVxuICAgIGluY3JlbWVudCA6IGludFxuICAgIHNlbGVjdCA6IGludFxuICB9XG5cbiAgY2xhc3MgQWRtaW5pc3RyYXRpb24ge1xuICAgIHF1YW50aXR5IDogW2ludCwgaW50XVxuICB9XG5cblx0XHRcdFx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiY2xhc3NEaWFncmFtXG5cbiAgXG4gIGNsYXNzIFJlc3RyaWN0aW9uIHtcbiAga2luZCA6IFtNaW58TWF4fFdpdGh8V2l0aG91dHxBcGFyZHxUb2dldGhlcnxCZWZvcmV8QWZ0ZXJdXG4gIH1cblxuICBjbGFzcyBBY3Rpb257XG4gIGlkIDogVG9rZW5cbiAgfVxuXG5SZXN0cmljdGlvbiAtLT4gQWN0aW9uIDogb3RoZXJcblxuUHJlc2NyaXB0aW9uIC0tPiBGcmFtZSA6IGRlY29tcFxuUHJlc2NyaXB0aW9uIC0tPiBcIipcIiBSZXN0cmljdGlvbiA6IHJlc3RyaWN0aW9uc1xuXG5cbkFkbWluaXN0cmF0aW9uIC0tPiBBY3Rpb24gOiBhY3Rpb25cblxuUG9pbnQgLS0-IEZyYW1lIDogZGVjb21wXG5cblxuRnJhbWUgLS0-IFBvaW50IDogc2VsZWN0aW9uXG5cblBvaW50IC0tPiBBZG1pbmlzdHJhdGlvbiA6IHRha2VcblxuXHRjbGFzcyBQcmVzY3JpcHRpb257XG4gICAgaWQgOiB0b2tlblxuICAgIHN0YXJ0IDogUG9pbnRJblRpbWVcbiAgICBkdXJhdGlvbiA6IGludFxuXHR9XG5cbiAgY2xhc3MgRnJhbWUge1xuICAgdW5pdCA6IFtEYXl8V2Vla3xOaWdodHxNb3JuaW5nfEFmdGVybm9vbnxIb3VyfE1pbnV0ZV1cbiAgfVxuXG4gIGNsYXNzIFBvaW50IHtcbiAgICB1bml0IDogW0RheXxXZWVrfE5pZ2h0fE1vcm5pbmd8QWZ0ZXJub29ufEhvdXJ8TWludXRlXVxuICAgIGluY3JlbWVudCA6IGludFxuICAgIHNlbGVjdCA6IGludFxuICB9XG5cbiAgY2xhc3MgQWRtaW5pc3RyYXRpb24ge1xuICAgIHF1YW50aXR5IDogW2ludCwgaW50XVxuICB9XG5cblx0XHRcdFx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)
-
   
 
 # References
