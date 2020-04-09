@@ -3,43 +3,57 @@ Collaborative Health Adherence Optimization in Sociotechnical Systems
 
 # Prescription model
 
-A **Prescription** is identified by a unique id. It has a start time (which is an absolute time point in form of a date) and it is bounded either by a *duration* or a *quantity* (of total actions to be administered).
+A **Prescription** has a uniquely identified **action**. It has a start time (which is an absolute time point in form of a date).  A prescription is defined over **TimeFrames** (defined by a **UnitTime** (a number and a nominal time unit such as day, month, hour etc.). A *TimeFrame* can be repeated n times. The number of that unit time defines the increment.  The time frame also has a minimum / maximum *quantity* that specifies how often the action should happen during the time.
 
-A prescription has a **TimeFrame** which refers to a nominal time unit **NominalTU** (weeks, months, etc.) and specifies an *every* and *total* attribute. Example: ``P1: every 2nd day for 10 days``. Here the *every* attribute is 2, the total is 10 and the NominalTU is *Day*.
-
-A **TimeFrame** can have another time frame as a sub-ordinate time frame. For example: ``P2: every second hour of every second day for 10 days``. Here the toplevel time frame (every second day) has subordinate time frame (every second hour), which then points to an action. 
-
-Prescriptions can also have **Restrictions**. Restrictions also refer to a Nominal Time Unit.
-* **Min** and **Max** restrictions restrict the maximum or minumum actions that should be taken during any specified time unit.
-* **Together**  restrictions require that subsequent prescribed actions need to be taken no longer than *value* time units apart. 
-* **Apart**  restrictions require that subsequent prescribed actions need to be taken at least *value* time units apart. 
-* **With** / **WithOut** restrictions require that each prescribed action needs to be taken with / without to an action specified by a different prescription
-* **after** require that each prescribed action needs to be taken at most *value* time units after the most recent other  specified action
-
-[![](https://mermaid.ink/img/eyJjb2RlIjoiY2xhc3NEaWFncmFtXG5cbiAgXG4gIGNsYXNzIFJlc3RyaWN0aW9uIHtcbiAga2luZCA6IFtNaW58TWF4fFdpdGh8V2l0aG91dHxBcGFyZHxUb2dldGhlcnxCZWZvcmV8QWZ0ZXJdXG4gIH1cblxuUmVzdHJpY3Rpb24gLS0-IEFjdGlvbiA6IG90aGVyXG5cblJlc3RyaWN0aW9uIC0tPiBVbml0VGltZSA6IGZyYW1lXG5cblByZXNjcmlwdGlvbiAtLT4gVGltZUZyYW1lIDogcmVwZWF0KHRpbWVzOmludClcblByZXNjcmlwdGlvbiAtLT4gXCIqXCIgUmVzdHJpY3Rpb24gOiByZXN0cmljdGlvbnNcblByZXNjcmlwdGlvbiAtLT4gVW5pdFRpbWUgOiBkdXJhdGlvblxuXG5QcmVzY3JpcHRpb24gLS0-IEFjdGlvbiA6IGFjdGlvblxuXG5cblRpbWVGcmFtZSAtLT4gVW5pdFRpbWUgOiBldmVyeVxuVGltZUZyYW1lIC0tPiBUaW1lRnJhbWUgOiBzdWJGcmFtZVxuXG5cdGNsYXNzIFByZXNjcmlwdGlvbntcbiAgICBpZCA6IFRva2VuXG4gICAgc3RhcnQgOiBEYXRlVGltZVxuXHR9XG5cblxuXG5cbiAgY2xhc3MgVGltZUZyYW1lIHtcbiAgZXZlcnk6IGludFxuICB1bml0OiBOb21pbmFsVFUgXG4gIH1cblxuICBjbGFzcyBVbml0VGltZXtcbiAgdW5pdDogW0RheXxXZWVrfE5pZ2h0fE1vcm5pbmd8QWZ0ZXJub29ufEhvdXJ8TWludXRlXVxuICB2YWx1ZTogaW50XG4gIH1cblx0XHRcdFx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiY2xhc3NEaWFncmFtXG5cbiAgXG4gIGNsYXNzIFJlc3RyaWN0aW9uIHtcbiAga2luZCA6IFtNaW58TWF4fFdpdGh8V2l0aG91dHxBcGFyZHxUb2dldGhlcnxCZWZvcmV8QWZ0ZXJdXG4gIH1cblxuUmVzdHJpY3Rpb24gLS0-IEFjdGlvbiA6IG90aGVyXG5cblJlc3RyaWN0aW9uIC0tPiBVbml0VGltZSA6IGZyYW1lXG5cblByZXNjcmlwdGlvbiAtLT4gVGltZUZyYW1lIDogcmVwZWF0KHRpbWVzOmludClcblByZXNjcmlwdGlvbiAtLT4gXCIqXCIgUmVzdHJpY3Rpb24gOiByZXN0cmljdGlvbnNcblByZXNjcmlwdGlvbiAtLT4gVW5pdFRpbWUgOiBkdXJhdGlvblxuXG5QcmVzY3JpcHRpb24gLS0-IEFjdGlvbiA6IGFjdGlvblxuXG5cblRpbWVGcmFtZSAtLT4gVW5pdFRpbWUgOiBldmVyeVxuVGltZUZyYW1lIC0tPiBUaW1lRnJhbWUgOiBzdWJGcmFtZVxuXG5cdGNsYXNzIFByZXNjcmlwdGlvbntcbiAgICBpZCA6IFRva2VuXG4gICAgc3RhcnQgOiBEYXRlVGltZVxuXHR9XG5cblxuXG5cbiAgY2xhc3MgVGltZUZyYW1lIHtcbiAgZXZlcnk6IGludFxuICB1bml0OiBOb21pbmFsVFUgXG4gIH1cblxuICBjbGFzcyBVbml0VGltZXtcbiAgdW5pdDogW0RheXxXZWVrfE5pZ2h0fE1vcm5pbmd8QWZ0ZXJub29ufEhvdXJ8TWludXRlXVxuICB2YWx1ZTogaW50XG4gIH1cblx0XHRcdFx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)
-
-## Input format
+Example: ``Take 2-3 A1 every 2nd day repeated 10 times``. Here the *action* is `A1`, the *TimeFrame* is `day`, the repeat   is 10 *Day*, the quantity interval is 2-3.
 
 ```clojure
-;; takePill1 for 10 weeks every morning
 (prescription
-  :action 'takePill1
+  :action 'A1
   :startTime (date 2020 4 07)
-  :duration 10
-  :durationUnit 'week 
-  :instruction (TF :tu 'morning :every 1))
-
-  ;; takePill2 for 10 weeks every other day in the evening 
-  ;; at least 6 hours apart from takePill1
-  (prescription
-    :action 'takePill2
-    :startTime (date 2020 4 07)
-    :duration 10
-    :durationUnit 'week 
-    :instruction (TF :tu 'day :every 2
-                     :subtu (TF 'evening))
-    :restriction (Without 'takePill1 6 'hour))
+  :frame (TF :every (UT 2 'day)
+             :repeat 10 
+             :quantity [2 3]))
 ```
+
+A **TimeFrame** can have subordinate time frames. For example: ``Take 3 A2 in the morning and 1-2 A2 in the afternoon for  10 days``. Here the toplevel time frame (day) has two subordinate time frames (morning and afternoon). 
+
+```clojure
+(prescription
+  :action 'A2
+  :startTime (date 2020 4 07)
+  :frame (TF :every (UT 'day)
+             :repeat 10 
+             :sub (list (TF :every (UT 'morning)
+                            :quantity [3 3])
+                        (TF :every (UT 'evening)
+                            :quantity [1 2]))))
+```
+
+
+Prescriptions can also have **Restrictions**. Restrictions also refer to a UnitTime.
+* **Min** and **Max** restrictions restrict the maximum or minumum actions that should be taken during any specified time unit.
+* **Together**  restrictions require that subsequent prescribed actions need to be taken no longer than the specified time apart. 
+* **Apart**  restrictions require that subsequent prescribed actions need to be taken at least the specified time apart. 
+* **With** / **WithOut** restrictions require that each prescribed action needs to be taken with / without an action specified by a different prescription
+* **after** require that each prescribed action needs to be taken at most *value* time units after the most recent other  specified action. Example: ``Take 3 A3 in the morning and 1-2 A3 in the afternoon for  10 days but not within 6 hours of taking A1``
+
+```clojure
+(prescription
+  :action 'A3
+  :startTime (date 2020 4 07)
+  :frame (TF :every (UT 'day)
+             :repeat 10 
+             :sub (list (TF :every (UT 'morning)
+                            :quantity [3 3])
+                        (TF :every (UT 'evening)
+                            :quantity [1 2])))
+  :restrictions (list (restriction 'without (UT 6 'hour) 'A1)))
+```
+
+
+[![](https://mermaid.ink/img/eyJjb2RlIjoiY2xhc3NEaWFncmFtXG5cbiAgXG4gIGNsYXNzIFJlc3RyaWN0aW9uIHtcbiAga2luZCA6IFtNaW58TWF4fFdpdGh8V2l0aG91dHxBcGFyZHxUb2dldGhlcnxCZWZvcmV8QWZ0ZXJdXG4gIH1cblxuICBjbGFzcyBBY3Rpb257XG4gIGlkIDogVG9rZW5cbiAgfVxuXG5SZXN0cmljdGlvbiAtLT4gQWN0aW9uIDogb3RoZXJcblxuUmVzdHJpY3Rpb24gLS0-IFVuaXRUaW1lIDogZnJhbWVcblxuUHJlc2NyaXB0aW9uIC0tPiBUaW1lRnJhbWUgOiBmcmFtZVxuUHJlc2NyaXB0aW9uIC0tPiBcIipcIiBSZXN0cmljdGlvbiA6IHJlc3RyaWN0aW9uc1xuXG5cblByZXNjcmlwdGlvbiAtLT4gQWN0aW9uIDogYWN0aW9uXG5cblxuVGltZUZyYW1lIC0tPiBVbml0VGltZSA6IGV2ZXJ5XG5UaW1lRnJhbWUgLS0-IFRpbWVGcmFtZSA6IHN1YkZyYW1lXG5cblx0Y2xhc3MgUHJlc2NyaXB0aW9ue1xuICAgIHN0YXJ0IDogRGF0ZVRpbWVcblx0fVxuXG4gIGNsYXNzIFRpbWVGcmFtZSB7XG4gIHJlcGVhdDogaW50XG4gIHF1YW50aXR5IDogaW50LCBpbnRcbiAgfVxuXG4gIGNsYXNzIFVuaXRUaW1le1xuICB1bml0OiBbRGF5fFdlZWt8TmlnaHR8TW9ybmluZ3xBZnRlcm5vb258SG91cnxNaW51dGVdXG4gIHZhbHVlOiBpbnRcbiAgfVxuXHRcdFx0XHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiY2xhc3NEaWFncmFtXG5cbiAgXG4gIGNsYXNzIFJlc3RyaWN0aW9uIHtcbiAga2luZCA6IFtNaW58TWF4fFdpdGh8V2l0aG91dHxBcGFyZHxUb2dldGhlcnxCZWZvcmV8QWZ0ZXJdXG4gIH1cblxuICBjbGFzcyBBY3Rpb257XG4gIGlkIDogVG9rZW5cbiAgfVxuXG5SZXN0cmljdGlvbiAtLT4gQWN0aW9uIDogb3RoZXJcblxuUmVzdHJpY3Rpb24gLS0-IFVuaXRUaW1lIDogZnJhbWVcblxuUHJlc2NyaXB0aW9uIC0tPiBUaW1lRnJhbWUgOiBmcmFtZVxuUHJlc2NyaXB0aW9uIC0tPiBcIipcIiBSZXN0cmljdGlvbiA6IHJlc3RyaWN0aW9uc1xuXG5cblByZXNjcmlwdGlvbiAtLT4gQWN0aW9uIDogYWN0aW9uXG5cblxuVGltZUZyYW1lIC0tPiBVbml0VGltZSA6IGV2ZXJ5XG5UaW1lRnJhbWUgLS0-IFRpbWVGcmFtZSA6IHN1YkZyYW1lXG5cblx0Y2xhc3MgUHJlc2NyaXB0aW9ue1xuICAgIHN0YXJ0IDogRGF0ZVRpbWVcblx0fVxuXG4gIGNsYXNzIFRpbWVGcmFtZSB7XG4gIHJlcGVhdDogaW50XG4gIHF1YW50aXR5IDogaW50LCBpbnRcbiAgfVxuXG4gIGNsYXNzIFVuaXRUaW1le1xuICB1bml0OiBbRGF5fFdlZWt8TmlnaHR8TW9ybmluZ3xBZnRlcm5vb258SG91cnxNaW51dGVdXG4gIHZhbHVlOiBpbnRcbiAgfVxuXHRcdFx0XHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
+
   
 
 # References
