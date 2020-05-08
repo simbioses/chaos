@@ -12,18 +12,8 @@ A **Requirement** is associate to a single action (that is uniquely identified),
 
 A Point must be further decomposed in a more granular Frame *or* it must specify a quantified **Administration** of the required action (with a miniumum and maximum quantity).
 
-Example: ``Require A1 for 10 weeks, every 2nd day, administer 1-2 times``. Here the *action* is `A1` that is administered between 1 and 2 times, the *Frame* is `weeks`, the duration is 10, the selected *Point* is every 2nd day (it has an increment value of 2).
+Example: ``require A1 for 10 weeks, every 2nd day, administer 1-2 times``. Here the *action* is `A1` that is administered between 1 and 2 times, the *Frame* is `weeks`, the duration is 10, the selected *Point* is every 2nd day (it has an increment value of 2).
 
-```clojure
-(require
-  :action 'A1
-  :startTime (date :year 2020 :month 4 :day 07)
-  :duration 10
-  :decomp [(Frame :unit 'week
-                  :selection [(Point :unit 'day
-                                     :increment 2
-                                     :admin [1 2])])])                                         
-```
 
 A **Point** can can further be decomposed by a Frame. For example: ``Require A2 for a duration of 10 weeks, every day, every morning administer 2-3 times and every evening administer 0-1 times``. Here the Point (unit of day) selected from the top-level Segmentation (unit of week) have been further decomposed in a sub-ordinate Frame of unit day (with two Points of unit morning and afternoon, respectively).
 
