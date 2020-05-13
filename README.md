@@ -41,4 +41,5 @@ restrict taking A3 and A4 together within at most 2 hours
 
 
 # References
+1. Planken's PhD thesis: Algorithms for Simple Temporal Reasoning http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.978.8678&rep=rep1&type=pdf
 1. Siemon's thesis: https://dspace.library.uvic.ca/handle/1828/8458
