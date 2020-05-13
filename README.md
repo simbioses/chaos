@@ -22,23 +22,22 @@ Note, the above example could be rewritten as ``require A3 for 10 weeks every mo
 
 ## Restrictions
 
-**Restrictions** specify situations to avoid. They refer to a value and with a nominal time unit (e.g;, 3 hours).
-* **Min** and **Max** restrictions restrict the maximum or minumum actions that should be taken during any specified time unit.
-* **Together**  restrictions require that the first action must be administered with the second action  (in the same unit time)
-* **Apart** restrictions require that the first action must not be administered with the second action  (in the same unit time)
-* **after** restrictions require that the second action must be taken at most *value* time units the first one
-* **notAfter** restrictions require that the second action must not be taken at most *value* time units the first one
+**Restrictions** specify situations to avoid. They refer to a unit time (e.g;, 3 hours).
+* **Min** and **Max** restrictions restrict the maximum or minumum actions that should be taken during any specified time.
+* **Together**  restrictions require that two actions must be administered together  (in the same unit time).
+* **Apart** restrictions require that two actions must be administered apart  (in the same unit time).
 
-Example: ``Restriction: administer 'A2 and 'A1 at least 6 hours apart ``
-
-```clojure
-(restrict
-  :first 'A2
-  :second 'A1
-  :value 6
-  :unit 'hour
-  :kind 'apart))                                     
+Examples: 
 ```
+restrict A3 to a minimum of 10 per day
+
+restrict A3 to a maximum of 10 per day
+
+restrict taking A3 and A4 apart by at least 4 hours
+
+restrict taking A3 and A4 together within at most 2 hours
+```
+
 
 
 # References
