@@ -41,8 +41,7 @@ restrict taking A3 and A4 together within at most 2 hours
 
 # Prototype
 
-see here:
-http://viewer.gorilla-repl.org/view.html?source=github&user=jenshweber&repo=chaos&path=test/chaos/core_test.clj
+A working prototype Gorilla Worksheet is under `chaos/test/core_test.clj` and archived here [https://github.com/simbioses/chaos/blob/master/prototype.pdf]
 
 # References
 1. Planken's PhD thesis: Algorithms for Simple Temporal Reasoning http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.978.8678&rep=rep1&type=pdf
