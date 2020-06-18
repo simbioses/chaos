@@ -39,7 +39,10 @@ restrict taking A3 and A4 apart by at least 4 hours
 restrict taking A3 and A4 together within at most 2 hours
 ```
 
+# Prototype
 
+see here:
+http://viewer.gorilla-repl.org/view.html?source=github&user=jenshweber&repo=chaos&path=test/chaos/core_test.clj
 
 # References
 1. Planken's PhD thesis: Algorithms for Simple Temporal Reasoning http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.978.8678&rep=rep1&type=pdf
